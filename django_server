@@ -1,0 +1,10 @@
+Watching for file changes with StatReloader
+/Users/shangyanyanli/Desktop/xrwvm-fullstack_developer_capstone/server/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 15, 2026 - 02:28:38
+Django version 4.2.30, using settings 'djangoproj.settings'
+Starting development server at http://127.0.0.1:8080/
+Quit the server with CONTROL-C.
