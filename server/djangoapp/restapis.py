@@ -12,6 +12,7 @@ sentiment_analyzer_url = os.getenv(
     'sentiment_analyzer_url',
     default="http://localhost:5050/").strip().rstrip("/") + "/"
 
+
 def get_request(endpoint, **kwargs):
     request_url = backend_url + endpoint
     print("GET from {} ".format(request_url))

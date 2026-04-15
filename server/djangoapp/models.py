@@ -32,7 +32,11 @@ class CarModel(models.Model):
     )
     dealer_id = models.IntegerField()
     name = models.CharField(max_length=100)
-    type = models.CharField(max_length=20, choices=CAR_TYPE_CHOICES, default=SEDAN)
+    type = models.CharField(
+        max_length=20,
+        choices=CAR_TYPE_CHOICES,
+        default=SEDAN,
+    )
     year = models.IntegerField(
         validators=[MinValueValidator(2015), MaxValueValidator(2023)]
     )

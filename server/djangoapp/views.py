@@ -34,6 +34,7 @@ def login_user(request):
         data = {"userName": username, "status": "Authenticated"}
     return JsonResponse(data)
 
+
 # Create a `logout_request` view to handle sign out request
 def logout_request(request):
     if request.method != 'GET':
@@ -42,6 +43,7 @@ def logout_request(request):
     logout(request)
     data = {"userName": ""}
     return JsonResponse(data)
+
 
 # Create a `registration` view to handle sign up request
 @csrf_exempt
@@ -57,7 +59,9 @@ def registration(request):
     email = data.get('email', '')
 
     if User.objects.filter(username=username).exists():
-        return JsonResponse({"userName": username, "error": "Already Registered"})
+        return JsonResponse(
+            {"userName": username, "error": "Already Registered"}
+        )
 
     user = User.objects.create_user(
         username=username,
@@ -68,6 +72,7 @@ def registration(request):
     )
     login(request, user)
     return JsonResponse({"userName": username, "status": True})
+
 
 def get_dealerships(request, state="All"):
     if state == "All":
@@ -103,9 +108,13 @@ def add_review(request):
             response = post_review(data)
             if response:
                 return JsonResponse({"status": 200})
-            return JsonResponse({"status": 401, "message": "Error in posting review"})
+            return JsonResponse(
+                {"status": 401, "message": "Error in posting review"}
+            )
         except Exception:
-            return JsonResponse({"status": 401, "message": "Error in posting review"})
+            return JsonResponse(
+                {"status": 401, "message": "Error in posting review"}
+            )
     return JsonResponse({"status": 403, "message": "Unauthorized"})
 
 
